@@ -1,14 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Button } from 'reactstrap'
+import logo from './styles/img/logo.svg'
 
-function App() {
+function App () {
   return (
     <div className="App">
+      <Button>Hello</Button>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit
+          {' '}
+          <code>src/App.js</code>
+          {' '}
+          and save to reload.
         </p>
         <a
           className="App-link"
@@ -20,7 +25,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
