@@ -1,24 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import axios from 'axios'
+import {createHashHistory} from 'history'
 
 import * as serviceWorker from './serviceWorker'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import './styles/index.scss'
-import App from './App'
-import configStore from './reducers/configStore'
-import reducers from './reducers'
-
-const initialState = {}
+import store from './reducers/index'
+import Routes from './routes'
+import { BACKEND_LINK } from './const'
 
 
-const store = configStore(initialState, reducers)
+const onRequestSuccess = config => ({ ...config, url: BACKEND_LINK + config.url })
+axios.interceptors.request.use(onRequestSuccess)
+const history = createHashHistory()
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <div>
+        <Router history={history}>
+          <Switch>
+            <Routes />
+          </Switch>
+        </Router>
+      </div>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
