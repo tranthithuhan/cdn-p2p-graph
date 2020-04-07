@@ -5,7 +5,7 @@ import { createMemoryHistory } from 'history'
 import testStore from '../reducers/index'
 
 
-export function renderWithRedux (children, { store = testStore } = {}) {
+export function renderWithRedux (children, { store } = { store: testStore}) {
   return <Provider store={store}>{ children }</Provider>
 }
 
