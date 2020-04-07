@@ -1,5 +1,11 @@
 import axios from 'axios'
 
+/**
+ * a redux promise middleware for handling async action
+ * @param dispatch
+ * @param getState
+ * @returns {function(*=): function(...[*]=)}
+ */
 export default function promiseMiddleware ({ dispatch, getState }) {
   return next => action => {
     if (typeof action === 'function') {
@@ -18,6 +24,7 @@ export default function promiseMiddleware ({ dispatch, getState }) {
     next({ ...rest, type: REQUEST })
 
     const onFulfilled = result => {
+      // dispatch the SUCCESS action on fulfilled
       next({ ...rest, result, type: SUCCESS })
 
       if (afterSuccess) {
@@ -32,6 +39,7 @@ export default function promiseMiddleware ({ dispatch, getState }) {
     }
 
     const onRejected = error => {
+      // dispatch the FAILURE action after rejected
       next({ ...rest, error, type: FAILURE })
       if (afterError) {
         afterError(dispatch, getState, error)

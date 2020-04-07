@@ -9,6 +9,7 @@ export const HOME_PATH = '/'
 export const DEFAULT_PERIOD = 'SI'
 const NOW = new Date()
 
+// periods available in period select dropdown
 export const PERIODS = {
   WEEK: {
     label: 'Last week',

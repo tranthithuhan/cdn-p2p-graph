@@ -19,17 +19,15 @@ axios.interceptors.request.use(onRequestSuccess)
 const history = createHashHistory()
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <div>
-        <Router history={history}>
-          <Switch>
-            <Routes />
-          </Switch>
-        </Router>
-      </div>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <div>
+      <Router history={history}>
+        <Switch>
+          <Routes />
+        </Switch>
+      </Router>
+    </div>
+  </Provider>,
   document.getElementById('root')
 )
 

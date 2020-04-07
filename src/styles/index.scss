@@ -1,4 +1,6 @@
 @import "~bootstrap/scss/bootstrap.scss";
+@import "~normalize.css";
+@import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "colors";
 @import "fonts";
 
@@ -22,4 +24,16 @@ html, body, #root, .App {
 .navbar {
   width: 100%;
   height: 50px;
+  background-color: $st-peacock-blue;
+  color: white;
+  font-family: $font-header;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.spinner-grow {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  margin: auto;
 }

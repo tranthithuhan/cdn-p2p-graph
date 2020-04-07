@@ -3,6 +3,12 @@ import {
 } from 'redux'
 import promiseMiddleware from './promiseMiddleware'
 
+/**
+ * create store with the initial state and reducers passing in parameter
+ * @param initialState
+ * @param reducers
+ * @returns {Store<{readonly "[$CombinedState]"?: undefined} & S, AnyAction>}
+ */
 export default function configStore (initialState, reducers) {
   const middlewares = [
     promiseMiddleware
